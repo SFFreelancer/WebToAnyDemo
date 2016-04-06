@@ -1,0 +1,130 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>oops 404 for Website Template for free | Home :: w3layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body{
+	font-family: 'Love Ya Like A Sister', cursive;
+}
+body{
+	background:#eaeaea;
+}	
+.wrap{
+	margin:0 auto;
+	width:1000px;
+}
+.logo{
+	text-align:center;
+	margin-top:100px;
+	margin: 23px;
+}
+.logo img{
+	width:350px;
+}
+.logo p{
+	color:#272727;
+	font-size:40px;
+	margin-top:1px;
+}	
+.logo p span{
+	color:lightgreen;
+}	
+.sub a{
+	color:#fff;
+	background:#272727;
+	text-decoration:none;
+	padding:10px 20px;
+	font-size:13px;
+	font-family: arial, serif;
+	font-weight:bold;
+	-webkit-border-radius:.5em;
+	-moz-border-radius:.5em;
+	-border-radius:.5em;
+}	
+.footer{
+	color:black;
+	position:absolute;
+	right:10px;
+	bottom:10px;
+}	
+.footer a{
+	color:rgb(114, 173, 38);
+}	
+#errorContainer{
+	font-family: -webkit-body;
+    border: 1px solid rgba(255, 0, 0, 0.38);
+    padding: 20px 20%;
+    border-radius: 7px;
+    background-color: rgba(255, 0, 0, 0.19);
+    font-weight: 400;
+    text-align: left;
+}
+</style>
+</head>
+
+
+<body>
+ <div class="wrap">
+	<div class="logo">
+		<img src="images/Logo.png" class="img-responsive" alt="Web To Any" style="width:135px;"/>
+			<p>OOPS! - Something went wrong!</p>
+			<div style="margin: 10px;">Please contact to your administrator with following Error Message and Error Code:</div>
+			 
+			<div id="errorContainer">
+				<div><span style="font-weight:700"	>Error Message:</span> <span id="errorMessage"></span></div>
+				<div><span style="font-weight:700">Error Code:</span> <span id="errorCode"></span></div>
+			</div>
+
+			<div class="sub">
+			  <p><a href="#">Back </a></p>
+			</div>
+	</div>
+ </div>	
+	<div class="footer">
+	 Web To Any
+	</div>
+	
+</body>
+<script>
+	var QueryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+        // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = decodeURIComponent(pair[1]);
+        // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+      query_string[pair[0]] = arr;
+        // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+    }
+  } 
+    return query_string;
+}();
+
+
+if(QueryString)
+{
+	var error = QueryString.error.split('+').join(' ');
+	var ErrorCode = QueryString.ErrorCode;
+	document.getElementById('errorMessage').textContent = error;
+	document.getElementById('errorCode').textContent = ErrorCode;
+}
+
+debugger;
+</script>
